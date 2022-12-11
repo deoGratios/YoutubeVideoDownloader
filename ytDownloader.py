@@ -1,7 +1,7 @@
 # Importation de la playlist
 from pytube import Playlist
 from pytube import YouTube
-from pprint import pprint
+
 
 def downloader():
     lien = input("Entrer le lien ici: ")
@@ -46,8 +46,8 @@ def convertSeconde(secondes):
 
 
 def filesFilter(video):
-    list_info = video.filter()
-    liste_info_aud = video.filter('mp3')
+    list_info = video.streams.filter(file_extension='mp4')
+    liste_info_aud = video.streams.filter(file_extension='mp3')
     list_info.append(liste_info_aud)
     return list_info
 
